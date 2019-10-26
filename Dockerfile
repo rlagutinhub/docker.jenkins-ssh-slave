@@ -53,9 +53,6 @@ RUN set -ex; \
 
 RUN set -ex; \
     sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
-
-RUN set -ex; \
-    mkdir -p ${JENKINS_HOME}/.ssh; 
     
 COPY ${JENKINS_KEY} ${JENKINS_HOME}/.ssh/authorized_keys
 
