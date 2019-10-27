@@ -22,8 +22,8 @@ RUN set -ex; \
     mkdir -p /usr/share/man/man1; \
     yum -y --setopt=tsflags=nodocs --enablerepo ol7_optional_latest,ol7_developer_EPEL install \
     glibc glibc-common rootfiles \
-    bash-completion tar gzip bzip2 zip unzip wget curl telnet rsync lsof procps findutils net-tools iproute bind-utils mailx less mc vim-minimal vim-enhanced \
-    openssh openssh-clients openssh-server openssl \
+    bash-completion tar gzip bzip2 zip unzip wget curl telnet rsync lsof procps openssl findutils net-tools iproute bind-utils mailx less mc vim-minimal vim-enhanced \
+    openssh openssh-clients openssh-server \
     python3 python3-devel python3-pip \
     java-1.8.0-openjdk maven \
     git svn hg; \
