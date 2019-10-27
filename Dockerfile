@@ -19,7 +19,7 @@ RUN set -ex; \
     yum -y update; \
     yum -y --setopt=tsflags=nodocs install glibc glibc-common; \
     yum -y --setopt=tsflags=nodocs install rootfiles; \
-    yum -y --setopt=tsflags=nodocs install bash-completion tar gzip bzip2 zip unzip which wget curl telnet tcpdump rsync lsof procps findutils util-linux net-tools iproute bind-utils mailx less mc vim-minimal vim-enhanced; \
+    yum -y --setopt=tsflags=nodocs install bash-completion tar gzip bzip2 zip unzip which wget curl telnet tcpdump rsync lsof procps hostname findutils util-linux net-tools iproute bind-utils mailx less mc vim-minimal vim-enhanced; \
     yum -y --setopt=tsflags=nodocs install openssh openssh-clients openssh-server; \
     yum -y --setopt=tsflags=nodocs install git svn hg; \
     yum -y --setopt=tsflags=nodocs install openssl; \
