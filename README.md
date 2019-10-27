@@ -1,23 +1,10 @@
-# docker.jenkins-slave
-
-```
-docker build -f Dockerfile -t docker.jenkins-slave:latest .
-docker rm -f jenkins-slave; docker run -dit --name jenkins-slave --network bridge docker.jenkins-slave:latest
-docker logs jenkins-slave --follow
-docker exec -it jenkins-slave bash
-```
-
 # Jenkins SSH slave Docker image
 ```
 ```
-This image is intended to be used for displaying x11 applications from container in a browser.
+This image is intended to be used for Jenkins SSH Slave on docker. This image is a modification of the official image [`jenkins/ssh-slave`](https://hub.docker.com/r/jenkins/ssh-slave/)
 >	* Base image oraclelinux:7-slim
 
-FYI https://github.com/rlagutinhub/docker_swarm-mode.novnc-internal-url
-
-[`jenkins/ssh-slave`](https://github.com/jenkinsci/docker-ssh-slave)
-
-A [Jenkins](https://jenkins-ci.org) slave using SSH to establish connection.
+FYI https://github.com/jenkinsci/docker-ssh-slave
 
 See [Jenkins Distributed builds](https://wiki.jenkins-ci.org/display/JENKINS/Distributed+builds) for more info.
 
