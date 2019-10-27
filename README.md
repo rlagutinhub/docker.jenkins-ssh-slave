@@ -1,9 +1,9 @@
 # Jenkins SSH slave Docker image
 ```
 ```
-This image is intended to be used as Jenkins SSH Slave on docker.
-This is a modification of the official image [`jenkins/ssh-slave`](https://hub.docker.com/r/jenkins/ssh-slave/)
->	* Base image oraclelinux:7-slim
+* This image is intended to be used as Jenkins SSH Slave on docker.
+* This is a modification of the official image [`jenkins/ssh-slave`](https://hub.docker.com/r/jenkins/ssh-slave/)
+> Base image oraclelinux:7-slim
 
 FYI https://github.com/jenkinsci/docker-ssh-slave
 
