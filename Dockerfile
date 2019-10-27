@@ -52,8 +52,8 @@ RUN set -ex; \
 RUN set -ex; \
     echo "PS1='\[\e[1;33m\][\u@\h \W]\$\[\e[0m\]'" > /etc/profile.d/bash-color.sh
 
-COPY setup-sshd /usr/local/bin/setup-sshd
+COPY runSSHD.sh /usr/local/bin/runSSHD.sh
 
 EXPOSE 22
 
-ENTRYPOINT ["setup-sshd"]
+ENTRYPOINT ["runSSHD.sh"]
