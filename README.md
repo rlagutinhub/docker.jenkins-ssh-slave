@@ -12,17 +12,17 @@ FYI https://github.com/jenkinsci/docker-ssh-slave
 To build a Docker image
 
 ```bash
-docker build -f Dockerfile -t jenkins-ssh-slave:latest .
+docker build -f Dockerfile -t docker.jenkins-ssh-slave:latest .
 ```
 
 To run a Docker container
 
 ```bash
-docker run rlagutinhub/jenkins-ssh-slave "<public key>"
+docker run rlagutinhub/docker.jenkins-ssh-slave "<public key>"
 ```
 or
 ```bash
-docker run -e "JENKINS_SSH_PUBKEY=<public key>" rlagutinhub/jenkins-ssh-slave
+docker run -e "JENKINS_SSH_PUBKEY=<public key>" rlagutinhub/docker.jenkins-ssh-slave
 ```
 
 You'll then be able to connect this slave using ssh-slaves-plugin as "jenkins" with the matching private key.
@@ -37,3 +37,8 @@ In _Environment_ field of the Docker Template (advanced section), just add:
     JENKINS_SSH_PUBKEY=<YOUR PUBLIC SSH KEY HERE>
 
 Don't put quotes around the public key. You should be all set.
+
+## On DockerHub / GitHub
+___
+* DockerHub [rlagutinhub/docker.jenkins-ssh-slave](https://hub.docker.com/r/rlagutinhub/docker.jenkins-ssh-slave)
+* GitHub [rlagutinhub/docker.jenkins-ssh-slave](https://github.com/rlagutinhub/docker.jenkins-ssh-slave)
