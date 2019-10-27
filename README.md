@@ -19,7 +19,9 @@ To run a Docker container
 
 ```bash
 docker run rlagutinhub/jenkins-ssh-slave "<public key>"
+```
 or
+```bash
 docker run -e "JENKINS_SSH_PUBKEY=<public key>" rlagutinhub/jenkins-ssh-slave
 ```
 
