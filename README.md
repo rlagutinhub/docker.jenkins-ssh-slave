@@ -9,10 +9,16 @@ FYI https://github.com/jenkinsci/docker-ssh-slave
 
 ## Usage
 
+To build a Docker image
+
+```bash
+docker build -f Dockerfile -t jenkins-ssh-slave:latest .
+```
+
 To run a Docker container
 
 ```bash
-docker run rlagutinhub/jenkins.ssh-slave "<public key>"
+docker run rlagutinhub/jenkins-ssh-slave "<public key>"
 ```
 
 You'll then be able to connect this slave using ssh-slaves-plugin as "jenkins" with the matching private key.
