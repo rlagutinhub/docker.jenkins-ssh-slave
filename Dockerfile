@@ -54,8 +54,8 @@ RUN set -ex; \
     echo "PS2='> '" >> /etc/profile.d/bash-color.sh; \
     echo "PS4='+ '" >> /etc/profile.d/bash-color.sh
 
-COPY runSSHD.sh /usr/local/bin/runSSHD.sh
+COPY setup-sshd /usr/local/bin/setup-sshd
 
 EXPOSE 22
 
-ENTRYPOINT ["runSSHD.sh"]
+ENTRYPOINT ["setup-sshd"]
