@@ -7,7 +7,7 @@ This image is intended to be used as Jenkins SSH Slave on docker. This is a modi
 FYI https://github.com/jenkinsci/docker-ssh-slave
 ***
 
-## Running
+## Usage
 
 To run a Docker container
 
