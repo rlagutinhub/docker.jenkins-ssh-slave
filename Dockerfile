@@ -50,7 +50,9 @@ RUN set -ex; \
     -e 's/#LogLevel.*/LogLevel INFO/'
 
 RUN set -ex; \
-    echo "PS1='\[\e[1;33m\][\u@\h \W]\$\[\e[0m\]'" > /etc/profile.d/bash-color.sh
+    echo "PS1='\[\033[01;33m\]\H \[\033[00m\]\W \$ '" >> /etc/profile.d/bash-color.sh; \
+    echo "PS2='> '" >> /etc/profile.d/bash-color.sh; \
+    echo "PS4='+ '" >> /etc/profile.d/bash-color.sh
 
 COPY runSSHD.sh /usr/local/bin/runSSHD.sh
 
