@@ -19,6 +19,8 @@ To run a Docker container
 
 ```bash
 docker run rlagutinhub/jenkins-ssh-slave "<public key>"
+or
+docker run -e "JENKINS_SSH_PUBKEY=<public key>" rlagutinhub/jenkins-ssh-slave
 ```
 
 You'll then be able to connect this slave using ssh-slaves-plugin as "jenkins" with the matching private key.
@@ -26,7 +28,7 @@ You'll then be able to connect this slave using ssh-slaves-plugin as "jenkins" w
 ### How to use this image with Docker Plugin
 
 To use this image with [Docker Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Docker+Plugin), you need to
-pass the public SSH key using environment variable `JENKINS_SLAVE_SSH_PUBKEY` and not as a startup argument.
+pass the public SSH key using environment variable `JENKINS_SSH_PUBKEY` and not as a startup argument.
 
 In _Environment_ field of the Docker Template (advanced section), just add:
 
