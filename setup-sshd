@@ -46,7 +46,7 @@ if [[ $# -gt 0 ]]; then
         write_key "$1"
         shift 1
     else
-        exec "$@"
+        "$@" &
     fi
 fi
 
