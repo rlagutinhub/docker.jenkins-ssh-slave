@@ -27,9 +27,7 @@ RUN set -ex; \
     yum -y --setopt=tsflags=nodocs --enablerepo ol7_optional_latest,ol7_developer_EPEL install java-1.8.0-openjdk maven; \
     rm -rf /var/cache/yum/*
 
-RUN set ex; \
-    pip3 install -U \
-    ipython
+RUN set ex; pip3 install -U python
 
 RUN set -ex; \
     ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime
@@ -40,6 +38,9 @@ ENV LANG='ru_RU.UTF-8' LANGUAGE='ru_RU:ru' LC_ALL='ru_RU.UTF-8'
 RUN set -ex; \
     groupadd -g ${JENKINS_GID} ${JENKINS_GROUP}; \
     useradd -d ${JENKINS_HOME} -u ${JENKINS_UID} -g ${JENKINS_GID} -m -s /bin/bash -c "Jenkins Slave Server" ${JENKINS_USER}
+
+RUN set -ex; \
+    ssh-keygen -A
 
 RUN set -ex; \
     sed -i /etc/ssh/sshd_config \
