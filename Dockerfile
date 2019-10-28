@@ -27,7 +27,7 @@ RUN set -ex; \
     yum -y --setopt=tsflags=nodocs --enablerepo ol7_optional_latest,ol7_developer_EPEL install java-1.8.0-openjdk maven; \
     rm -rf /var/cache/yum/*
 
-RUN set ex; pip3 install -U python
+RUN set ex; pip3 install -U ipython
 
 RUN set -ex; \
     ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime
