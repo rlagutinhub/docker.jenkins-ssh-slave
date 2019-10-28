@@ -44,7 +44,7 @@ RUN set -ex; \
 RUN set -ex; \
     sed -i /etc/ssh/sshd_config \
     -e 's/#PermitRootLogin.*/PermitRootLogin no/' \
-    -e 's/#RSAAuthentication.*/RSAAuthentication yes/'  \
+    -e 's/#RSAAuthentication.*/RSAAuthentication yes/' \
     -e 's/#PasswordAuthentication.*/PasswordAuthentication no/' \
     -e 's/#SyslogFacility.*/SyslogFacility AUTH/' \
     -e 's/#LogLevel.*/LogLevel INFO/'
@@ -53,6 +53,9 @@ RUN set -ex; \
     echo "PS1='\[\033[01;33m\]\H \[\033[00m\]\W \$ '" >> /etc/profile.d/bash-color.sh; \
     echo "PS2='> '" >> /etc/profile.d/bash-color.sh; \
     echo "PS4='+ '" >> /etc/profile.d/bash-color.sh
+
+# VOLUME "${JENKINS_HOME}" "/tmp" "/run" "/var/run"
+# WORKDIR "${JENKINS_HOME}"
 
 COPY setup-sshd /usr/local/bin/setup-sshd
 
