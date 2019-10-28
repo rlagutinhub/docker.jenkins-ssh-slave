@@ -2,13 +2,40 @@
 
 set -ex
 
+# SIGTERM handler
+function _term() {
+
+    echo "Stopping container."
+    echo "SIGTERM received, shutting down the server!"
+    kill -15 $childPID
+    exit 0 # 128+15
+
+}
+
+# SIGKILL handler
+function _kill() {
+
+    echo "SIGKILL received, shutting down the server!"
+    kill -9 $childPID
+    # exit 137 # 128+9
+
+}
+
 function write_key() {
+
     mkdir -p "${JENKINS_HOME}/.ssh"
     echo "$1" > "${JENKINS_HOME}/.ssh/authorized_keys"
     chown -Rf ${JENKINS_USER}:${JENKINS_GROUP} "${JENKINS_HOME}/.ssh"
     chmod 0700 "${JENKINS_HOME}/.ssh"
     chmod 0600 "${JENKINS_HOME}/.ssh/authorized_keys"
+
 }
+
+# Set SIGTERM handler
+trap _term SIGTERM
+
+# Set SIGKILL handler
+trap _kill SIGKILL
 
 if [[ $JENKINS_SLAVE_SSH_PUBKEY == ssh-* ]]; then
     write_key "${JENKINS_SLAVE_SSH_PUBKEY}"
@@ -27,4 +54,7 @@ fi
 env | grep _ >> /etc/environment
 
 ssh-keygen -A
-exec /usr/sbin/sshd -D -e "${@}"
+/usr/sbin/sshd -D -e "${@}" &
+
+childPID=$!
+wait $childPID
